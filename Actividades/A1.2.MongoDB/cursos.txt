@@ -1,0 +1,69 @@
+db.Clases.insert({titulo:"curso1",Profesor:[{Nombre:"Pepe",Matricula:"000001",Direccion:"Calle1",Genero:"Masculino",Cursos:[{titulo:"mate1",ano:"2018"},{titulo:"mate",ano:2018}]}],Ano:2018})
+
+db.Clases.update({titulo:”curso1"}, {$set:{Evaluacion:[{Teoricas: 10, Practicas: 10}]}})
+
+db.Clases.update({titulo:"curso1"}, {$set:{Alumnos:[{Nombre:"Esme", Matricula:"A01023086", Direccion:"Satebronx", Genero:"Femenino", Cursos:[{Nombre:"mate", Ano:2018, CalidficacionesEval:[{Curso:1, Calf: 89},{Curso:1, Calf:87},{Curso:3, Calf:91},{Curso:4, Calf:90}]}],CalfFin:88, CalfProf:93}]}})
+
+{
+	"_id" : ObjectId("5aab43d997e1888db6be1244"),
+	"titulo" : "mate",
+	"Profesor" : [
+		{
+			"Nombre" : "Pepe",
+			"Matricula" : "000001",
+			"Direccion" : "Calle1",
+			"Genero" : "Masculino",
+			"Cursos" : [
+				{
+					"titulo" : "mate1",
+					"ano" : "2018"
+				},
+				{
+					"titulo" : "mate",
+					"ano" : 2018
+				}
+			]
+		}
+	],
+	"Ano" : 2018,
+	"Evaluacion" : [
+		{
+			"Teoricas" : 10,
+			"Practicas" : 10
+		}
+	],
+	"Alumnos" : [
+		{
+			"Nombre" : "Esme",
+			"Matricula" : "A01023086",
+			"Direccion" : "Satebronx",
+			"Genero" : "Femenino",
+			"Cursos" : [
+				{
+					"Nombre" : "mate",
+					"Ano" : 2018,
+					"CalidficacionesEval" : [
+						{
+							"Curso" : 1,
+							"Calf" : 89
+						},
+						{
+							"Curso" : 1,
+							"Calf" : 87
+						},
+						{
+							"Curso" : 3,
+							"Calf" : 91
+						},
+						{
+							"Curso" : 4,
+							"Calf" : 90
+						}
+					]
+				}
+			],
+			"CalfFin" : 88,
+			"CalfProf" : 93
+		}
+	]
+}
