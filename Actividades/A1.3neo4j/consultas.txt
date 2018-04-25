@@ -1,0 +1,62 @@
+Tarea Neo4j
+Esmeralda Magdaleno
+A01023086
+
+
+Utilizando la base de datos Movies de ejemplo resuelve las siguientes
+preguntas:
+
+1. ¿Cuántos actores hay?
+
+MATCH (a:Person), (m:Movie) where (a)-[:ACTED_IN]->(m) return a, count(a)
+
+102 actores
+
+2. ¿cuántos productores hay?
+
+MATCH (a:Person), (m:Movie) where (a)-[:PRODUCED]->(m) return a, count(a)
+
+8 productores
+
+3. ¿cuántos directores hay?
+
+MATCH (a:Person), (m:Movie) where (a)-[:DIRECTED]->(m) return a, count(a)
+
+28 directores
+
+4. ¿cuántas películas hay?
+
+MATCH (a:Movie) count(a)
+
+38 peliculas
+
+5. ¿Quién ha escrito más películas?
+
+MATCH (a:Person), (m:Movie) where (a)-[:WROTE]->(m) return a, count(a)
+
+Lilly Wachowski y Lana Wachowski
+
+6. El top 5 de películas con el mejor Rating
+
+MATCH (m:Person)-[i:REVIEWED]-(x:Movie) RETURN x.title as Title, i.rating as Rating ORDER BY i.rating DESC LIMIT 5
+
+│"Title"            │"Rating"│
+╞═══════════════════╪════════╡
+│"The Replacements" │100     │
+├───────────────────┼────────┤
+│"Cloud Atlas"      │95      │
+├───────────────────┼────────┤
+│"Jerry Maguire"    │92      │
+├───────────────────┼────────┤
+│"Unforgiven"       │85      │
+├───────────────────┼────────┤
+│"The Da Vinci Code"│68      │
+
+
+
+7. ¿Qué personas debería conocer Al Pacino para que le presentaran a
+Audrey Tautou?
+
+match t=(a:Person)-[x:ACTED_IN]->(:Movie)<-[y:PRODUCED]-(z) return z
+
+8. ¿Qué actores que han producido y actuado en la misma película?
